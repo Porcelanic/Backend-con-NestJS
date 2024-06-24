@@ -11,7 +11,7 @@ export default registerAs('config', () => {
 
       user: process.env.DB_USUARIO || 'postgres',
 
-      password: process.env.DB_PASSWORD || 'root',
+      password: process.env.DB_PASSWORD || '1234',
 
       schema: 'public',
 

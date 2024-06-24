@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsuarioModule } from './usuario/usuario.module';
+import { camisaModule } from './camisa/camisa.module';
 import { ConfigModule } from '@nestjs/config';
 import { enviroments } from './enviroments';
 import config from './config';
@@ -16,7 +17,8 @@ import { DatabaseModule } from './dataBase/database.module';
   
     }),
     DatabaseModule,
-    UsuarioModule
+    UsuarioModule,
+    camisaModule
   ],
   controllers: [AppController],
   providers: [AppService],

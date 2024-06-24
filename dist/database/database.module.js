@@ -27,7 +27,7 @@ exports.DatabaseModule = DatabaseModule = __decorate([
                         database: name,
                         schema: schema,
                         username: user,
-                        password: password || 'root',
+                        password: password || '1234',
                         port,
                         synchronize: true,
                         autoLoadEntities: true,
