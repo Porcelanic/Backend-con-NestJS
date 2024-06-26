@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, DeepPartial } from 'typeorm';
-import { camisa } from '../entidades/camisa.entity';
+import { camisa } from '../../Entidades/camisa.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { crearCamisaDto, actualizarCamisaDto } from '../dto/camisa.dto';
 

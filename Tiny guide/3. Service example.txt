@@ -1,3 +1,5 @@
+3. Service example:
+
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, DeepPartial } from 'typeorm';
 import { cliente } from '../../Entidades/usuario.entity';
@@ -13,7 +15,7 @@ export class usuarioService {
     ){}
 
 
-     prueba():string {
+    prueba():string {
         return 'Mi primer servicio';
     }
 
@@ -134,7 +136,4 @@ async eliminarUsuario(cedula: string){
     }
 
 
-
 }
-
-

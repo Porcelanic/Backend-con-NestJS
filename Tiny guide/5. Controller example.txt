@@ -1,3 +1,5 @@
+5. Controller example:
+
 import { Controller, Get, Post, Param, Put, Body, UsePipes, ValidationPipe, ParseIntPipe, Delete } from '@nestjs/common';
 import { usuarioService } from '../servicios/usuario.services';
 import { actualizarUsuarioDto, crearUsuarioDto } from '../dto/usuario.dto';
