@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, DeepPartial } from 'typeorm';
-import { cliente } from '../../Entidades/usuario.entity';
+import { usuario } from '../../../database/Entidades/usuario.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { crearLoginDto } from '../dto/login.dto';
 import { crearUsuarioDto, actualizarUsuarioDto } from '../dto/usuario.dto';
@@ -8,12 +8,12 @@ import { crearUsuarioDto, actualizarUsuarioDto } from '../dto/usuario.dto';
 @Injectable()
 export class usuarioService {
     constructor(
-        @InjectRepository(cliente)
-        private usuarioRepo: Repository<cliente>
+        @InjectRepository(usuario)
+        private usuarioRepo: Repository<usuario>
     ){}
 
 
-     prueba():string {
+    prueba():string {
         return 'Mi primer servicio';
     }
 

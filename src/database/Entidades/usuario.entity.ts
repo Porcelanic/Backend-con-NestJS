@@ -6,7 +6,7 @@ import { Exclude } from 'class-transformer';
 
 
 @Entity()
-export class cliente {
+export class usuario {
   @PrimaryGeneratedColumn()
   id: number;
   @Column({ type: 'varchar', length: 20})

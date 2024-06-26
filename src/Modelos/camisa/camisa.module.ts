@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { camisa } from '../Entidades/camisa.entity';
+import { camisa } from '../../database/Entidades/camisa.entity';
 import { camisaController } from './controladores/camisa.controller';
 import { camisaService } from './servicios/camisa.services';
 
