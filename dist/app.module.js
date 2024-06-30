@@ -12,10 +12,13 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const usuario_module_1 = require("./Modelos/usuario/usuario.module");
 const camisa_module_1 = require("./Modelos/camisa/camisa.module");
+const cliente_module_1 = require("./Modelos/cliente/cliente.module");
 const config_1 = require("@nestjs/config");
 const enviroments_1 = require("./enviroments");
 const config_2 = require("./config");
 const database_module_1 = require("./dataBase/database.module");
+const estampado_module_1 = require("./Modelos/estampado/estampado.module");
+const artista_module_1 = require("./Modelos/artista/artista.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -29,7 +32,10 @@ exports.AppModule = AppModule = __decorate([
             }),
             database_module_1.DatabaseModule,
             usuario_module_1.UsuarioModule,
-            camisa_module_1.camisaModule
+            camisa_module_1.camisaModule,
+            cliente_module_1.ClienteModule,
+            estampado_module_1.EstampadoModule,
+            artista_module_1.ArtistaModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

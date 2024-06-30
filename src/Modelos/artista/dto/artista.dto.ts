@@ -7,7 +7,7 @@ function stringToDate({ value }: TransformFnParams) {
 }
 
 
-export class crearClienteDto {
+export class crearArtistaDto {
     @IsNotEmpty()
     @IsEmail() 
     correo: string;
@@ -22,4 +22,4 @@ export class crearClienteDto {
 
 }
 
-export class actualizarClienteDto extends PartialType(crearClienteDto) {}
+export class actualizarArtistaDto extends PartialType(crearArtistaDto) {}

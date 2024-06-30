@@ -19,3 +19,5 @@ After creating the controller another optional step would be to also create a te
 started that the controller is working properly.
 
 And to finish the backend a module need to be created to encapsulate all the previous services
+
+then the only thing you need to do to implement your new service into the backend is go to 'app.module.ts' and import the new module and add it to the modules of the APP
