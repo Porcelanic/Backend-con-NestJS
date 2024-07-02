@@ -19,6 +19,7 @@ const config_2 = require("./config");
 const database_module_1 = require("./dataBase/database.module");
 const estampado_module_1 = require("./Modelos/estampado/estampado.module");
 const artista_module_1 = require("./Modelos/artista/artista.module");
+const material_module_1 = require("./Modelos/material/material.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -36,6 +37,7 @@ exports.AppModule = AppModule = __decorate([
             cliente_module_1.ClienteModule,
             estampado_module_1.EstampadoModule,
             artista_module_1.ArtistaModule,
+            material_module_1.MaterialModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

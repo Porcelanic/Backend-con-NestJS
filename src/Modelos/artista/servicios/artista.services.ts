@@ -100,7 +100,7 @@ export class artistaService {
         }
       } else {
         return {
-          statusCode: 200,
+          statusCode: 404,
           message: 'Artista no encontrado',
         };
       }

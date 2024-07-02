@@ -10,6 +10,7 @@ import config from './config';
 import { DatabaseModule } from './dataBase/database.module';
 import { EstampadoModule } from './Modelos/estampado/estampado.module';
 import { ArtistaModule } from './Modelos/artista/artista.module';
+import { MaterialModule } from './Modelos/material/material.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ArtistaModule } from './Modelos/artista/artista.module';
     ClienteModule,
     EstampadoModule,
     ArtistaModule,
+    MaterialModule,
   ],
   controllers: [AppController],
   providers: [AppService],

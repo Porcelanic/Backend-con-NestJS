@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 import { Exclude } from 'class-transformer';
+import { estampado } from './estampado.entity';
 
 @Entity()
 export class artista {

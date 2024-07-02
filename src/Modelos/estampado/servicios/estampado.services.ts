@@ -22,7 +22,7 @@ export class estampadoService {
   async crearEstampado(data: crearEstampadoDto) {
     try {
       const user = await this.estampadoRepo.find({
-        where: [{ nombre: data.nombre , artista_email: data.artista_email}],
+        where: [{ nombre: data.nombre , artistaEmail: data.artistaEmail}],
       });
       if (user.length > 0) {
         return {
@@ -40,7 +40,7 @@ export class estampadoService {
     } catch (error) {
       return {
         statusCode: 500,
-        message: 'Error Interno',
+        message: error.message,
       };
     }
   }
@@ -49,7 +49,7 @@ export class estampadoService {
   async actualizarEstampado(nombre: string, data: actualizarEstampadoDto) {
     try {
       const user = await this.estampadoRepo.findOne({
-        where: [{ nombre: nombre, artista_email: data.artista_email}],
+        where: [{ nombre: nombre, artistaEmail: data.artistaEmail}],
       });
 
 
@@ -81,13 +81,13 @@ export class estampadoService {
   
     //Consultar Cliente Id
     async consultarEstampado(nombre: string, data: identificadorEstampadoDto) {
-      return await this.estampadoRepo.find({ where: { nombre: nombre, artista_email: data.artista_email } });
+      return await this.estampadoRepo.find({ where: { nombre: nombre, artistaEmail: data.artistaEmail } });
     }
 
   async eliminarEstampado(nombre: string, data: identificadorEstampadoDto) {
     try {
       const user = await this.estampadoRepo.findOne({
-        where: [{nombre: nombre , artista_email: data.artista_email}],
+        where: [{nombre: nombre , artistaEmail: data.artistaEmail}],
       })
       if(user){
         await this.estampadoRepo.delete(user);
