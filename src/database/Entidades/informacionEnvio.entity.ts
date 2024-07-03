@@ -20,6 +20,6 @@ export class informacionEnvio {
   @Column({ type: 'varchar', length: 45 })
   clienteEmail: string;
   @ManyToOne(() => cliente, {onDelete: 'CASCADE'})
-  @JoinColumn({ name: 'clienteEmail', referencedColumnName: 'correo' })
+  @JoinColumn({ name: 'clienteEmail', referencedColumnName: 'email' })
   cliente: cliente;
 }

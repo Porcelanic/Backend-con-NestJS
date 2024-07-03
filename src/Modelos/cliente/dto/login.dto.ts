@@ -7,7 +7,7 @@ export class crearLoginDto {
 
   @IsNotEmpty()
   @IsEmail()
-  correo: string;
+  email: string;
 
   @IsNotEmpty()
   @IsString()

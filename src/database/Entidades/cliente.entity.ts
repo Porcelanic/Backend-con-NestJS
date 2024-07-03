@@ -4,7 +4,7 @@ import { Exclude } from 'class-transformer';
 @Entity()
 export class cliente {
   @PrimaryColumn({ type: 'varchar', length: 45 })
-  correo: string;
+  email: string;
   @Column({ type: 'varchar', length: 45 })
   nombre: string;
   @Exclude()

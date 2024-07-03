@@ -10,7 +10,7 @@ function stringToDate({ value }: TransformFnParams) {
 export class crearArtistaDto {
     @IsNotEmpty()
     @IsEmail() 
-    correo: string;
+    email: string;
 
     @IsNotEmpty()
     @IsString()

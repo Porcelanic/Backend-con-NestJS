@@ -27,21 +27,21 @@ export class ClienteController {
     return await this.clienteService.consultarTodos();
   }
 
-  @Get('consultarCorreo/:correo')
-  async consultarCorreo(@Param('correo') correo: string){
-    return await this.clienteService.consultarCorreo(correo);
+  @Get('consultarEmail/:email')
+  async consultarEmail(@Param('email') email: string){
+    return await this.clienteService.consultarEmail(email);
   }
 
-  @Put('actualizarCliente/:correo')
+  @Put('actualizarCliente/:email')
   @UsePipes(new ValidationPipe())
-  async actualizarCliente(@Param('correo') correo: string, @Body() data: actualizarClienteDto) {
-    return await this.clienteService.actualizarCliente(correo, data);
+  async actualizarCliente(@Param('email') email: string, @Body() data: actualizarClienteDto) {
+    return await this.clienteService.actualizarCliente(email, data);
   }
 
-  @Delete('eliminarCliente/:correo')
+  @Delete('eliminarCliente/:email')
   @UsePipes(new ValidationPipe())
-  async eliminarCliente(@Param('correo') correo: string) {
-    return await this.clienteService.eliminarCliente(correo);
+  async eliminarCliente(@Param('email') email: string) {
+    return await this.clienteService.eliminarCliente(email);
   }
 
 

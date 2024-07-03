@@ -19,7 +19,7 @@ export class clienteService {
   async login(data: crearLoginDto) {
     try {
       const user = await this.clienteRepo.find({
-        where: [{ correo: data.correo, password: data.password }],
+        where: [{ email: data.email, password: data.password }],
       });
       if (user.length == 0) {
         return {
@@ -44,7 +44,7 @@ export class clienteService {
   async crearCliente(data: crearClienteDto) {
     try {
       const user = await this.clienteRepo.find({
-        where: [{ correo: data.correo }],
+        where: [{ email: data.email }],
       });
 
       if (user.length > 0) {
@@ -74,18 +74,18 @@ export class clienteService {
   }
 
   //Consultar Cliente Id
-  async consultarCorreo(correo: string) {
-    return await this.clienteRepo.findOne({ where: { correo: correo } });
+  async consultarEmail(email: string) {
+    return await this.clienteRepo.findOne({ where: { email: email } });
   }
 
   //actualizar Cliente
-  async actualizarCliente(correo: string, data: actualizarClienteDto) {
+  async actualizarCliente(email: string, data: actualizarClienteDto) {
     try {
       const user = await this.clienteRepo.findOne({
-        where: { correo: correo },
+        where: { email: email },
       });
       if (user) {
-        if (data.correo == null || data.correo == correo) {
+        if (data.email == null || data.email == email) {
           await this.clienteRepo.merge(user, data);
           return {
             statusCode: 201,
@@ -95,7 +95,7 @@ export class clienteService {
         } else{
           return {
             statusCode: 200,
-            message: 'El correo no es un campo editable',
+            message: 'El email no es un campo editable',
           }
         }
       } else {
@@ -112,10 +112,10 @@ export class clienteService {
     }
   }
 
-  async eliminarCliente(correo: string) {
+  async eliminarCliente(email: string) {
     try {
       const user = await this.clienteRepo.findOne({
-        where: { correo: correo },
+        where: { email: email },
       });
       if (user) {
         await this.clienteRepo.delete(user);

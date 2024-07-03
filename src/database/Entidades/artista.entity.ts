@@ -5,7 +5,7 @@ import { estampado } from './estampado.entity';
 @Entity()
 export class artista {
   @PrimaryColumn({ type: 'varchar', length: 45 })
-  correo: string;
+  email: string;
   @Column({ type: 'varchar', length: 45 })
   nombre: string;
   @Exclude()

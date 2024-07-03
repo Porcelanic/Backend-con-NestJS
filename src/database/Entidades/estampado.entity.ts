@@ -20,6 +20,6 @@ export class estampado {
   artistaEmail: string;
 
   @ManyToOne(() => artista, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'artistaEmail', referencedColumnName: 'correo' })
+  @JoinColumn({ name: 'artistaEmail', referencedColumnName: 'email' })
   artista: artista;
 }

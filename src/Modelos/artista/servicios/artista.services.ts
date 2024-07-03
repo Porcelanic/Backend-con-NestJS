@@ -19,7 +19,7 @@ export class artistaService {
   async login(data: crearLoginDto) {
     try {
       const user = await this.artistaRepo.find({
-        where: [{ correo: data.correo, password: data.password }],
+        where: [{ email: data.email, password: data.password }],
       });
       if (user.length == 0) {
         return {
@@ -44,7 +44,7 @@ export class artistaService {
   async crearArtista(data: crearArtistaDto) {
     try {
       const user = await this.artistaRepo.find({
-        where: [{ correo: data.correo }],
+        where: [{ email: data.email }],
       });
 
       if (user.length > 0) {
@@ -74,18 +74,18 @@ export class artistaService {
   }
 
   //Consultar Artista Id
-  async consultarCorreo(correo: string) {
-    return await this.artistaRepo.findOne({ where: { correo: correo } });
+  async consultarEmail(email: string) {
+    return await this.artistaRepo.findOne({ where: { email: email } });
   }
 
   //actualizar Artista
-  async actualizarArtista(correo: string, data: actualizarArtistaDto) {
+  async actualizarArtista(email: string, data: actualizarArtistaDto) {
     try {
       const user = await this.artistaRepo.findOne({
-        where: { correo: correo },
+        where: { email: email },
       });
       if (user) {
-        if (data.correo == null || data.correo == correo) {
+        if (data.email == null || data.email == email) {
           await this.artistaRepo.merge(user, data);
           return {
             statusCode: 201,
@@ -95,7 +95,7 @@ export class artistaService {
         } else{
           return {
             statusCode: 200,
-            message: 'El correo no es un campo editable',
+            message: 'El email no es un campo editable',
           }
         }
       } else {
@@ -112,10 +112,10 @@ export class artistaService {
     }
   }
 
-  async eliminarArtista(correo: string) {
+  async eliminarArtista(email: string) {
     try {
       const user = await this.artistaRepo.findOne({
-        where: { correo: correo },
+        where: { email: email },
       });
       if (user) {
         await this.artistaRepo.delete(user);

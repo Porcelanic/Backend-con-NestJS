@@ -10,7 +10,7 @@ function stringToDate({ value }: TransformFnParams) {
 export class crearClienteDto {
     @IsNotEmpty()
     @IsEmail() 
-    correo: string;
+    email: string;
 
     @IsNotEmpty()
     @IsString()

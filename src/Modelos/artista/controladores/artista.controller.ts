@@ -27,21 +27,21 @@ export class ArtistaController {
     return await this.artistaService.consultarTodos();
   }
 
-  @Get('consultarCorreo/:correo')
-  async consultarCorreo(@Param('correo') correo: string){
-    return await this.artistaService.consultarCorreo(correo);
+  @Get('consultarEmail/:email')
+  async consultarEmail(@Param('email') email: string){
+    return await this.artistaService.consultarEmail(email);
   }
 
-  @Put('actualizarArtista/:correo')
+  @Put('actualizarArtista/:email')
   @UsePipes(new ValidationPipe())
-  async actualizarArtista(@Param('correo') correo: string, @Body() data: actualizarArtistaDto) {
-    return await this.artistaService.actualizarArtista(correo, data);
+  async actualizarArtista(@Param('email') email: string, @Body() data: actualizarArtistaDto) {
+    return await this.artistaService.actualizarArtista(email, data);
   }
 
-  @Delete('eliminarArtista/:correo')
+  @Delete('eliminarArtista/:email')
   @UsePipes(new ValidationPipe())
-  async eliminarArtista(@Param('correo') correo: string) {
-    return await this.artistaService.eliminarArtista(correo);
+  async eliminarArtista(@Param('email') email: string) {
+    return await this.artistaService.eliminarArtista(email);
   }
 
 

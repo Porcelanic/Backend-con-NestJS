@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsuarioModule } from './Modelos/usuario/usuario.module';
 import { ClienteModule } from './Modelos/cliente/cliente.module';
 import { ConfigModule } from '@nestjs/config';
 import { enviroments } from './enviroments';
@@ -23,7 +22,6 @@ import { camisaModule } from './Modelos/camisa/camisa.module';
   
     }),
     DatabaseModule,
-    UsuarioModule,
     ClienteModule,
     EstampadoModule,
     ArtistaModule,

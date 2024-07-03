@@ -10,7 +10,6 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const usuario_module_1 = require("./Modelos/usuario/usuario.module");
 const cliente_module_1 = require("./Modelos/cliente/cliente.module");
 const config_1 = require("@nestjs/config");
 const enviroments_1 = require("./enviroments");
@@ -34,7 +33,6 @@ exports.AppModule = AppModule = __decorate([
                 isGlobal: true,
             }),
             database_module_1.DatabaseModule,
-            usuario_module_1.UsuarioModule,
             cliente_module_1.ClienteModule,
             estampado_module_1.EstampadoModule,
             artista_module_1.ArtistaModule,
