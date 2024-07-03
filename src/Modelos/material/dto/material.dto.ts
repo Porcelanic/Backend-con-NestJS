@@ -5,7 +5,7 @@ import { Transform, TransformFnParams } from 'class-transformer';
 export class crearMaterialDto {
     @IsNotEmpty()
     @IsString()
-    nombre: string;
+    Material: string;
 
     @IsNotEmpty()
     @IsNumber()

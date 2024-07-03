@@ -1,15 +1,40 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { estampado } from './estampado.entity';
+import { material } from './material.entity';
+import { pedido } from './pedido.entity';
 
 @Entity()
 export class camisa {
   @PrimaryGeneratedColumn()
-  id: number;
+  idCamisa: number;
+
   @Column({ type: 'varchar', length: 20 })
-  color: string;
-  @Column({ type: 'varchar', length: 3 })
+  imagen: string;
+
+  @Column({ type: 'decimal', precision: 5, scale: 2 })
+  precio: number;
+
+  @Column({ type: 'varchar', length: 20 })
   talla: string;
+
+  @Column({ type: 'integer' })
+  cantidad: number;
+
+  @Column({ type: 'integer' })
+  idEstampado: number;
+  @ManyToOne(() => estampado, {onDelete: 'CASCADE'})
+  @JoinColumn({ name: 'idEstampado', referencedColumnName: 'idEstampado' })
+  estampado: estampado;
+
   @Column({ type: 'varchar', length: 20 })
-  tela: string;
-  @Column({ type: 'varchar', length: 20 })
-  marca: string;
+  Material: string;
+  @ManyToOne(() => material, {onDelete: 'CASCADE'})
+  @JoinColumn({ name: 'Material', referencedColumnName: 'Material' })
+  material: material;
+
+  @Column({ type: 'integer' })
+  numeroPedido: number;
+  @ManyToOne(() => pedido, {onDelete: 'CASCADE'})
+  @JoinColumn({ name: 'numeroPedido', referencedColumnName: 'numeroPedido' })
+  pedido: pedido;
 }

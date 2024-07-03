@@ -27,7 +27,7 @@ export class camisaService {
     } catch (error) {
       return {
         statusCode: 500,
-        message: 'Error Interno',
+        message: error.message,
       };
     }
   }
@@ -38,7 +38,7 @@ export class camisaService {
   }
 
   //Consultar Camisas por marca
-  async consultarTodosMarca(marca: string) {
-    return await this.camisaRepo.find({ where: { marca: marca } });
+  async consultarTodosMarca(idCamisa: number) {
+    return await this.camisaRepo.find({ where: { idCamisa: idCamisa } });
   }
 }

@@ -17,7 +17,9 @@ export class informacionEnvio {
   direccion: string;
   @Column({ type: 'varchar', length: 13 })
   telefono: string;
+  @Column({ type: 'varchar', length: 45 })
+  clienteEmail: string;
   @ManyToOne(() => cliente, {onDelete: 'CASCADE'})
-  @JoinColumn({ name: 'clienteEmail', referencedColumnName: 'email' })
+  @JoinColumn({ name: 'clienteEmail', referencedColumnName: 'correo' })
   cliente: cliente;
 }

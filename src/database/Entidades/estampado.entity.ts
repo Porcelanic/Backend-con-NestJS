@@ -5,7 +5,7 @@ import { artista } from './artista.entity';
 @Entity()
 export class estampado {
   @PrimaryGeneratedColumn()
-  idestampado: number;
+  idEstampado: number;
 
   @Column({ type: 'text' })
   diseño: string;

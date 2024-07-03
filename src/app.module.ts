@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsuarioModule } from './Modelos/usuario/usuario.module';
-import { camisaModule } from './Modelos/camisa/camisa.module';
 import { ClienteModule } from './Modelos/cliente/cliente.module';
 import { ConfigModule } from '@nestjs/config';
 import { enviroments } from './enviroments';
@@ -11,6 +10,9 @@ import { DatabaseModule } from './dataBase/database.module';
 import { EstampadoModule } from './Modelos/estampado/estampado.module';
 import { ArtistaModule } from './Modelos/artista/artista.module';
 import { MaterialModule } from './Modelos/material/material.module';
+import { InformacionEnvioModule } from './Modelos/informacionEnvio/informacionEnvio.module';
+import { PedidoModule } from './Modelos/pedido/material.module';
+import { camisaModule } from './Modelos/camisa/camisa.module';
 
 @Module({
   imports: [
@@ -22,11 +24,13 @@ import { MaterialModule } from './Modelos/material/material.module';
     }),
     DatabaseModule,
     UsuarioModule,
-    camisaModule,
     ClienteModule,
     EstampadoModule,
     ArtistaModule,
     MaterialModule,
+    InformacionEnvioModule,
+    PedidoModule,
+    camisaModule
   ],
   controllers: [AppController],
   providers: [AppService],

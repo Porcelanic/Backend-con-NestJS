@@ -26,9 +26,9 @@ export class camisaController {
     return await this.camisaService.consultarTodos();
   }
 
-  @Get('consultarCamisaMarca/:marca')
-  async consultarCamisaMarca(@Param('marca', ParseIntPipe)  marca: string){
-    return await this.camisaService.consultarTodosMarca(marca);
+  @Get('consultarIdCamisa/:idCamisa')
+  async consultarCamisaMarca(@Param('idCamisa')  idCamisa: number){
+    return await this.camisaService.consultarTodosMarca(idCamisa);
   }
   
 

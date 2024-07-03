@@ -26,21 +26,21 @@ export class MaterialController {
     return await this.materialService.consultarTodos();
   }
 
-  @Get('consultarNombre/:nombre')
-  async consultarNombre(@Param('nombre') nombre: string){
-    return await this.materialService.consultarMaterial(nombre);
+  @Get('consultarNombre/:Material')
+  async consultarNombre(@Param('Material') Material: string){
+    return await this.materialService.consultarMaterial(Material);
   }
 
-  @Put('actualizarMaterial/:nombre')
+  @Put('actualizarMaterial/:Material')
   @UsePipes(new ValidationPipe())
-  async actualizarMaterial(@Param('nombre') nombre: string, @Body() data: actualizarMaterialDto) {
-    return await this.materialService.actualizarMaterial(nombre, data);
+  async actualizarMaterial(@Param('Material') Material: string, @Body() data: actualizarMaterialDto) {
+    return await this.materialService.actualizarMaterial(Material, data);
   }
 
-  @Delete('eliminarMaterial/:nombre')
+  @Delete('eliminarMaterial/:Material')
   @UsePipes(new ValidationPipe())
-  async eliminarMaterial(@Param('nombre') nombre: string) {
-    return await this.materialService.eliminarMaterial(nombre);
+  async eliminarMaterial(@Param('Material') Material: string) {
+    return await this.materialService.eliminarMaterial(Material);
   }
 
 }

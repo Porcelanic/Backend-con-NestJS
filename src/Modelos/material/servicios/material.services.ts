@@ -17,7 +17,7 @@ export class materialService {
   async crearMaterial(data: crearMaterialDto) {
     try {
       const user = await this.materialRepo.find({
-        where: [{ nombre: data.nombre }],
+        where: [{ Material: data.Material }],
       });
 
       if (user.length > 0) {
@@ -41,22 +41,22 @@ export class materialService {
     }
   }
 
-  async consultarMaterial(nombre: string) {
-    return await this.materialRepo.findOne({where: [{nombre: nombre}]});
+  async consultarMaterial(Material: string) {
+    return await this.materialRepo.findOne({where: [{Material: Material}]});
   }
 
   async consultarTodos(){
     return await this.materialRepo.find();
   }
 
-  async actualizarMaterial(nombre: string, data: actualizarMaterialDto) {
+  async actualizarMaterial(Material: string, data: actualizarMaterialDto) {
     try {
       const user = await this.materialRepo.findOne({
-        where: [{ nombre: nombre }],
+        where: [{ Material: Material }],
       });
 
       if (user) {
-        if (data.nombre == null || data.nombre == nombre) {
+        if (data.Material == null || data.Material == Material) {
           await this.materialRepo.merge(user, data);
           return {
             statusCode: 200,
@@ -66,7 +66,7 @@ export class materialService {
         } else {
             return {
                 statusCode: 400,
-                message: 'El nombre no es un campo editable',
+                message: 'El Material no es un campo editable',
             }
         }
       } else {
@@ -83,10 +83,10 @@ export class materialService {
     }
   }
 
-  async eliminarMaterial(nombre: string) {
+  async eliminarMaterial(Material: string) {
     try {
       const user = await this.materialRepo.findOne({
-        where: [{ nombre: nombre }],
+        where: [{ Material: Material }],
       });
 
       if (user) {

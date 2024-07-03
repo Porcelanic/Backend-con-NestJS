@@ -1,4 +1,4 @@
-import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import {  PartialType } from '@nestjs/swagger';
 import { Transform, TransformFnParams } from 'class-transformer';
 
@@ -10,20 +10,31 @@ function stringToDate({ value }: TransformFnParams) {
 export class crearCamisaDto {
   @IsNotEmpty()
   @IsString()
-  color: string;
+  imagen: string;
+
+  @IsNotEmpty()
+  @IsNumber()
+  precio: number;
 
   @IsNotEmpty()
   @IsString()
   talla: string;
 
   @IsNotEmpty()
-  @IsString()
-  tela: string;
+  @IsNumber()
+  cantidad: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  idEstampado: number;
 
   @IsNotEmpty()
   @IsString()
-  marca: string;
+  Material: string;
 
+  @IsNotEmpty()
+  @IsNumber()
+  numeroPedido: number;
 }
 
 export class actualizarCamisaDto extends PartialType(crearCamisaDto) {}
