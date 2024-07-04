@@ -21,6 +21,9 @@ const material_module_1 = require("./Modelos/material/material.module");
 const informacionEnvio_module_1 = require("./Modelos/informacionEnvio/informacionEnvio.module");
 const material_module_2 = require("./Modelos/pedido/material.module");
 const camisa_module_1 = require("./Modelos/camisa/camisa.module");
+const upload_module_1 = require("./Modelos/upload/upload.module");
+const serve_static_1 = require("@nestjs/serve-static");
+const path_1 = require("path");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -29,8 +32,12 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             config_1.ConfigModule.forRoot({
                 envFilePath: enviroments_1.enviroments[process.env.NODE_ENV] || '.dev.env',
-                load: [config_2.default,],
+                load: [config_2.default],
                 isGlobal: true,
+            }),
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: (0, path_1.join)(__dirname, '..', 'Uploads', 'Estampados'),
+                serveRoot: '/uploads',
             }),
             database_module_1.DatabaseModule,
             cliente_module_1.ClienteModule,
@@ -39,7 +46,8 @@ exports.AppModule = AppModule = __decorate([
             material_module_1.MaterialModule,
             informacionEnvio_module_1.InformacionEnvioModule,
             material_module_2.PedidoModule,
-            camisa_module_1.camisaModule
+            camisa_module_1.camisaModule,
+            upload_module_1.UploadModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
