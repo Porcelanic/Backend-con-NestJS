@@ -73,6 +73,10 @@ export class artistaService {
     return await this.artistaRepo.find();
   }
 
+  async consultarArtista(email: string) {
+    return await this.artistaRepo.findOne({ where: { email: email } });
+  }
+
   //Consultar Artista Id
   async consultarEmail(email: string) {
     return await this.artistaRepo.findOne({ where: { email: email } });

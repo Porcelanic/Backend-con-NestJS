@@ -84,6 +84,10 @@ export class estampadoService {
       return await this.estampadoRepo.find({ where: { nombre: nombre, artistaEmail: data.artistaEmail } });
     }
 
+    async consultarDiseño(diseño: string) {
+      return await this.estampadoRepo.findOne({ where: { diseño: diseño } });
+    }
+
   async eliminarEstampado(nombre: string, data: identificadorEstampadoDto) {
     try {
       const user = await this.estampadoRepo.findOne({

@@ -27,6 +27,11 @@ export class estampadoController {
         return await this.estampadoService.consultarEstampado(nombre, data);
     }
 
+    @Get('consultarDesign/:design')
+    async consultarDiseño(@Param('design') design: string) {
+        return await this.estampadoService.consultarDiseño(design);
+    }
+
     @Put('actualizarEstampado/:nombre')
     @UsePipes(new ValidationPipe())
     async actualizarEstampado(@Param('nombre') nombre: string, @Body() data: actualizarEstampadoDto) {

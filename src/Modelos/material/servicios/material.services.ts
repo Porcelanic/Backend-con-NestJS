@@ -57,6 +57,7 @@ export class materialService {
 
       if (user) {
         if (data.Material == null || data.Material == Material) {
+          data.cantidad = user.cantidad-data.cantidad;
           await this.materialRepo.merge(user, data);
           return {
             statusCode: 200,

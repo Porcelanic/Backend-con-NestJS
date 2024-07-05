@@ -1,4 +1,4 @@
-import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 import {  PartialType } from '@nestjs/swagger';
 import { Transform, TransformFnParams } from 'class-transformer';
 
@@ -24,9 +24,9 @@ export class crearCamisaDto {
   @IsNumber()
   cantidad: number;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsNumber()
-  idEstampado: number;
+  idEstampado?: number;
 
   @IsNotEmpty()
   @IsString()

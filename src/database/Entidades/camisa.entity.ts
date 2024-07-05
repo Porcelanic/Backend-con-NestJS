@@ -8,10 +8,10 @@ export class camisa {
   @PrimaryGeneratedColumn()
   idCamisa: number;
 
-  @Column({ type: 'varchar', length: 20 })
+  @Column({ type: 'varchar', length: 50 })
   imagen: string;
 
-  @Column({ type: 'decimal', precision: 5, scale: 2 })
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
   precio: number;
 
   @Column({ type: 'varchar', length: 20 })
@@ -20,9 +20,9 @@ export class camisa {
   @Column({ type: 'integer' })
   cantidad: number;
 
-  @Column({ type: 'integer' })
-  idEstampado: number;
-  @ManyToOne(() => estampado, {onDelete: 'CASCADE'})
+  @Column({ type: 'integer', nullable: true})
+  idEstampado?: number;
+  @ManyToOne(() => estampado, {onDelete: 'CASCADE', nullable: true})
   @JoinColumn({ name: 'idEstampado', referencedColumnName: 'idEstampado' })
   estampado: estampado;
 

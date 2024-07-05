@@ -27,6 +27,11 @@ export class ArtistaController {
     return await this.artistaService.consultarTodos();
   }
 
+  @Get('consultarArtista/:email')
+  async consultarArtistaEmail(@Param('email') email: string){
+    return await this.artistaService.consultarArtista(email);
+  }
+
   @Get('consultarEmail/:email')
   async consultarEmail(@Param('email') email: string){
     return await this.artistaService.consultarEmail(email);

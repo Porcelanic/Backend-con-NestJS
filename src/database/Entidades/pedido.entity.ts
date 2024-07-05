@@ -6,7 +6,7 @@ export class pedido {
   @PrimaryGeneratedColumn()
   numeroPedido: number;
   
-  @Column({ type: 'decimal', precision: 5, scale: 2 })
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
   valor: number;
 
   @Column({ type: 'varchar', length: 15 })
