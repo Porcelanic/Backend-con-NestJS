@@ -6,8 +6,8 @@ exports.default = (0, config_1.registerAs)('config', () => {
         postgres: {
             host: process.env.DB_HOST,
             name: process.env.DB_DATABASE,
-            user: process.env.DB_USUARIO || 'postgres',
-            password: process.env.DB_PASSWORD || '1234',
+            user: process.env.DB_USUARIO,
+            password: process.env.DB_PASSWORD,
             schema: 'public',
             port: parseInt(process.env.DB_PORT, 10),
         },

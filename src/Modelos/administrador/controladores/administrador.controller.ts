@@ -23,13 +23,13 @@ export class AdministradorController {
   }
 
   @Get('consultarAdministrador')
-  async consultarAdministrador(){
+  async consultarTodos(){
     return await this.administradorService.consultarTodos();
   }
 
-  @Get('consultarEmail/:email')
-  async consultarEmail(@Param('email') email: string){
-    return await this.administradorService.consultarEmail(email);
+  @Get('consultarAdministrador/:email')
+  async consultarUno(@Param('email') email: string){
+    return await this.administradorService.consultarUno(email);
   }
 
   @Put('actualizarAdministrador/:email')

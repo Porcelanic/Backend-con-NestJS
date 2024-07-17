@@ -70,12 +70,28 @@ export class administradorService {
 
   //Consultar Administrador
   async consultarTodos() {
-    return await this.administradorRepo.find();
+    const users = await this.administradorRepo.find();
+    if (users.length > 0) {
+      return users;
+    } else {
+      return {
+        statusCode: 200,
+        message: 'No hay administradores',
+      };
+    }
   }
 
   //Consultar Administrador Id
-  async consultarEmail(email: string) {
-    return await this.administradorRepo.findOne({ where: { email: email } });
+  async consultarUno(email: string) {
+    const user = await this.administradorRepo.findOne({ where: { email: email } });
+    if(user){
+      return user
+    } else {
+      return {
+        statusCode: 404,
+        message: 'Administrador no encontrado',
+      };
+    }
   }
 
   //actualizar Administrador

@@ -74,12 +74,12 @@ export class estampadoService {
     }
   }
 
-    //Consultar Cliente
+    //Consultar todos los estampados
     async consultarTodos() {
       return await this.estampadoRepo.find();
     }
   
-    //Consultar Cliente Id
+    //Consultar un estampado
     async consultarEstampado(nombre: string, data: identificadorEstampadoDto) {
       return await this.estampadoRepo.find({ where: { nombre: nombre, artistaEmail: data.artistaEmail } });
     }

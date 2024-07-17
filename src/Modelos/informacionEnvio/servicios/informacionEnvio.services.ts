@@ -40,7 +40,28 @@ export class informacionEnvioService {
   }
 
   async consultarTodos() {
-    return await this.informacionEnvioRepo.find();
+    const informacionEnvios = await this.informacionEnvioRepo.find();
+    if (informacionEnvios.length > 0) {
+      return informacionEnvios;
+    } else {
+      return {
+        statusCode: 200,
+        message: 'No hay informacionEnvios',
+      };
+    }
+  }
+
+  //Consultar informacionEnvio por Id
+  async consultarUno(id: number) {
+    const informacionEnvio = await this.informacionEnvioRepo.findOne({ where: { id: id } });
+    if (informacionEnvio) {
+      return informacionEnvio;
+    } else {
+      return {
+        statusCode: 404,
+        message: 'InformacionEnvio no encontrado',
+      };
+    }
   }
 
   async actualizarInformacionEnvio(id: number, data: actualizarInformacionEnvioDto) {

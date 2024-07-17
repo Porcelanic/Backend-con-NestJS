@@ -27,9 +27,9 @@ export class ClienteController {
     return await this.clienteService.consultarTodos();
   }
 
-  @Get('consultarEmail/:email')
-  async consultarEmail(@Param('email') email: string){
-    return await this.clienteService.consultarEmail(email);
+  @Get('consultarCliente/:email')
+  async consultarUno(@Param('email') email: string){
+    return await this.clienteService.consultarUno(email);
   }
 
   @Put('actualizarCliente/:email')

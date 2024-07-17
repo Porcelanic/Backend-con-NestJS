@@ -30,14 +30,30 @@ export class pedidoService {
     }
   }
 
-  async consultarPedido(clienteEmail: string) {
-    return await this.pedidoRepo.find({
-      where: [{ clienteEmail: clienteEmail }],
-    });
+  //Consultar todos los pedidos
+  async consultarTodos() {
+    const pedidos = await this.pedidoRepo.find();
+    if (pedidos.length > 0) {
+      return pedidos;
+    } else {
+      return {
+        statusCode: 200,
+        message: 'No hay pedidos',
+      };
+    }
   }
 
-  async consultarTodos() {
-    return await this.pedidoRepo.find();
+  //Consultar Pedido por Id
+  async consultarUno(clienteEmail: string) {
+    const pedido = await this.pedidoRepo.findOne({ where: { clienteEmail: clienteEmail } });
+    if (pedido) {
+      return pedido;
+    } else {
+      return {
+        statusCode: 404,
+        message: 'Pedido no encontrado',
+      };
+    }
   }
 
   async actualizarPedido(numeroPedido: number, pedido: actualizarPedidoDto) {

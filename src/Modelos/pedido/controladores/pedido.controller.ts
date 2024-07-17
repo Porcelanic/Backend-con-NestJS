@@ -22,13 +22,13 @@ export class PedidoController {
   }
 
   @Get('consultarPedido')
-  async consultarPedido(){
+  async consultarTodos(){
     return await this.pedidoService.consultarTodos();
   }
 
-  @Get('consultarNumeroPedido/:numeroPedido')
-  async consultarNombre(@Param('numeroPedido') numeroPedido: string){
-    return await this.pedidoService.consultarPedido(numeroPedido);
+  @Get('consultarPedido/:numeroPedido')
+  async consultarUno(@Param('numeroPedido') numeroPedido: string){
+    return await this.pedidoService.consultarUno(numeroPedido);
   }
 
   @Put('actualizarPedido/:numeroPedido')

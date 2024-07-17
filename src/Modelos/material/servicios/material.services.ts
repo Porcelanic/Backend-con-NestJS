@@ -41,12 +41,30 @@ export class materialService {
     }
   }
 
-  async consultarMaterial(Material: string) {
-    return await this.materialRepo.findOne({where: [{Material: Material}]});
+  //Consultar todos los materials
+  async consultarTodos() {
+    const materials = await this.materialRepo.find();
+    if (materials.length > 0) {
+      return materials;
+    } else {
+      return {
+        statusCode: 200,
+        message: 'No hay materials',
+      };
+    }
   }
 
-  async consultarTodos(){
-    return await this.materialRepo.find();
+  //Consultar material por nombre
+  async consultarUno(Material: string) {
+    const material = await this.materialRepo.findOne({ where: { Material: Material } });
+    if (material) {
+      return material;
+    } else {
+      return {
+        statusCode: 404,
+        message: 'Artista no encontrado',
+      };
+    }
   }
 
   async actualizarMaterial(Material: string, data: actualizarMaterialDto) {

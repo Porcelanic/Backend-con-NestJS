@@ -70,12 +70,28 @@ export class clienteService {
 
   //Consultar Cliente
   async consultarTodos() {
-    return await this.clienteRepo.find();
+    const clientes = await this.clienteRepo.find();
+    if (clientes.length > 0) {
+      return clientes;
+    } else {
+      return {
+        statusCode: 200,
+        message: 'No hay clientes',
+      };
+    }
   }
 
-  //Consultar Cliente Id
-  async consultarEmail(email: string) {
-    return await this.clienteRepo.findOne({ where: { email: email } });
+  //Consultar Cliente por su email
+  async consultarUno(email: string) {
+    const cliente = await this.clienteRepo.findOne({ where: { email: email } });
+    if (cliente) {
+      return cliente;
+    } else {
+      return {
+        statusCode: 404,
+        message: 'Cliente no encontrado',
+      };
+    }
   }
 
   //actualizar Cliente

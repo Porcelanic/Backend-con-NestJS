@@ -67,19 +67,30 @@ export class artistaService {
       };
     }
   }
-
-  //Consultar Artista
+  //Consultar todos los artistas
   async consultarTodos() {
-    return await this.artistaRepo.find();
+    const artistas = await this.artistaRepo.find();
+    if (artistas.length > 0) {
+      return artistas;
+    } else {
+      return {
+        statusCode: 200,
+        message: 'No hay artistas',
+      };
+    }
   }
 
-  async consultarArtista(email: string) {
-    return await this.artistaRepo.findOne({ where: { email: email } });
-  }
-
-  //Consultar Artista Id
-  async consultarEmail(email: string) {
-    return await this.artistaRepo.findOne({ where: { email: email } });
+  //Consultar Artista por Id
+  async consultarUno(email: string) {
+    const artista = await this.artistaRepo.findOne({ where: { email: email } });
+    if (artista) {
+      return artista;
+    } else {
+      return {
+        statusCode: 404,
+        message: 'Artista no encontrado',
+      };
+    }
   }
 
   //actualizar Artista

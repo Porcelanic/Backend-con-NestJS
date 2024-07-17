@@ -32,13 +32,28 @@ export class camisaService {
     }
   }
 
-  //Consultar Camisas
   async consultarTodos() {
-    return await this.camisaRepo.find();
+    const camisas = await this.camisaRepo.find();
+    if (camisas.length > 0) {
+      return camisas;
+    } else {
+      return {
+        statusCode: 200,
+        message: 'No hay camisas',
+      };
+    }
   }
 
-  //Consultar Camisas por marca
-  async consultarTodosMarca(idCamisa: number) {
-    return await this.camisaRepo.find({ where: { idCamisa: idCamisa } });
+  //Consultar Camisa por id
+  async consultarUno(id: number) {
+    const camisa = await this.camisaRepo.findOne({ where: { idCamisa: id } });
+    if (camisa) {
+      return camisa;
+    } else {
+      return {
+        statusCode: 404,
+        message: 'Camisa no encontrada',
+      };
+    }
   }
 }

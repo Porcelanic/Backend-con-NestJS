@@ -22,13 +22,13 @@ export class MaterialController {
   }
 
   @Get('consultarMaterial')
-  async consultarMaterial(){
+  async consultarTodos(){
     return await this.materialService.consultarTodos();
   }
 
-  @Get('consultarNombre/:Material')
-  async consultarNombre(@Param('Material') Material: string){
-    return await this.materialService.consultarMaterial(Material);
+  @Get('consultarMaterial/:Material')
+  async consultarUno(@Param('Material') Material: string){
+    return await this.materialService.consultarUno(Material);
   }
 
   @Put('actualizarMaterial/:Material')

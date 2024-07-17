@@ -25,6 +25,7 @@ const upload_module_1 = require("./Modelos/upload/upload.module");
 const serve_static_1 = require("@nestjs/serve-static");
 const path_1 = require("path");
 const administrador_module_1 = require("./Modelos/administrador/administrador.module");
+const camisetas_module_1 = require("./Modelos/camisetas/camisetas.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -37,11 +38,12 @@ exports.AppModule = AppModule = __decorate([
                 isGlobal: true,
             }),
             serve_static_1.ServeStaticModule.forRoot({
-                rootPath: (0, path_1.join)(__dirname, '..', 'Uploads', 'Estampados'),
+                rootPath: (0, path_1.join)(__dirname, '..', 'Uploads'),
                 serveRoot: '/uploads',
             }),
             database_module_1.DatabaseModule,
             cliente_module_1.ClienteModule,
+            camisetas_module_1.CamisetasModule,
             estampado_module_1.EstampadoModule,
             artista_module_1.ArtistaModule,
             material_module_1.MaterialModule,

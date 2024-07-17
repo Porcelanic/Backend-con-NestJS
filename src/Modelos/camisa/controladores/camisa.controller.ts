@@ -26,9 +26,9 @@ export class camisaController {
     return await this.camisaService.consultarTodos();
   }
 
-  @Get('consultarIdCamisa/:idCamisa')
-  async consultarCamisaMarca(@Param('idCamisa')  idCamisa: number){
-    return await this.camisaService.consultarTodosMarca(idCamisa);
+  @Get('consultarCamisa/:idCamisa')
+  async consultarUno(@Param('idCamisa')  idCamisa: number){
+    return await this.camisaService.consultarUno(idCamisa);
   }
   
 

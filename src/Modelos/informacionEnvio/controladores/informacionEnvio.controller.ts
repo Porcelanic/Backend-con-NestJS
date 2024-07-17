@@ -22,8 +22,13 @@ export class InformacionEnvioController {
   }
 
   @Get('consultarInformacionEnvio')
-  async consultarInformacionEnvio(){
+  async consultarTodos(){
     return await this.informacionEnvioService.consultarTodos();
+  }
+
+  @Get('consultarInformacionEnvio/:id')
+  async consultarUno(@Param('id', ParseIntPipe) id: number){
+    return await this.informacionEnvioService.consultarUno(id);
   }
 
   @Get('consultarClienteEmail/:clienteEmail')
