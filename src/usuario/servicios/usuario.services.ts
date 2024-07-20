@@ -3,12 +3,13 @@ import { Repository, DeepPartial } from 'typeorm';
 import { usuario } from '../entidades/usuario.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { crearUsuarioDto, actualizarUsuarioDto } from '../dto/usuario.dto';
+import { Rol } from '../entidades/rol.entity';
 
 @Injectable()
 export class usuarioService {
     constructor(
         @InjectRepository(usuario)
-        private usuarioRepo: Repository<usuario>
+        private usuarioRepo: Repository<usuario>,
     ){}
 
 
@@ -16,28 +17,7 @@ export class usuarioService {
         return 'Mi primer servicio';
     }
 
-    async login(correo: string, password: string) {
-      try{
-      const user = await this.usuarioRepo.find({where:[{ correo: correo , password: password}]});
-      if (user.length == 0) {
-        return{
-          statusCode: 404,
-          message: "Usuario o contraseña incorrectos"
-        }
-      }
-      return {
-        statusCode: 200,
-        user: user,
-        Response: true
-      }
-    }catch(error){
-      return {
-        statusCode: 500,
-        message: 'Error Interno'
-    }
-
-    }
-    }
+    
   
 
     //Crear Usuario
@@ -69,12 +49,13 @@ export class usuarioService {
 
   //Consultar Usuario
   async consultarTodos(){
-    return await this.usuarioRepo.find(); 
+    return await this.usuarioRepo.find({
+      relations: ["fk_rol_user"]}); 
   }
 
   //Consultar Usuario Id
   async consultarTodosCedula(cedula: string){
-    return await this.usuarioRepo.findOne({where: {cedula: cedula}}); 
+    return await this.usuarioRepo.findOne({where: {cedula: cedula}, relations: ["fk_rol_user"]}); 
   }
 
 

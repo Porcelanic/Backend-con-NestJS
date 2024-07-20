@@ -13,6 +13,8 @@ exports.actualizarUsuarioDto = exports.crearUsuarioDto = void 0;
 const class_validator_1 = require("class-validator");
 const swagger_1 = require("@nestjs/swagger");
 const class_transformer_1 = require("class-transformer");
+const rol_entity_1 = require("../entidades/rol.entity");
+const swagger_2 = require("@nestjs/swagger");
 function stringToDate({ value }) {
     return new Date(value);
 }
@@ -20,45 +22,58 @@ class crearUsuarioDto {
 }
 exports.crearUsuarioDto = crearUsuarioDto;
 __decorate([
+    (0, swagger_2.ApiProperty)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], crearUsuarioDto.prototype, "cedula", void 0);
 __decorate([
+    (0, swagger_2.ApiProperty)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], crearUsuarioDto.prototype, "nombre", void 0);
 __decorate([
+    (0, swagger_2.ApiProperty)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], crearUsuarioDto.prototype, "apellido", void 0);
 __decorate([
+    (0, swagger_2.ApiProperty)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_transformer_1.Transform)(stringToDate),
     __metadata("design:type", Date)
 ], crearUsuarioDto.prototype, "fechaNacimiento", void 0);
 __decorate([
+    (0, swagger_2.ApiProperty)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], crearUsuarioDto.prototype, "telefono", void 0);
 __decorate([
+    (0, swagger_2.ApiProperty)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], crearUsuarioDto.prototype, "direccion", void 0);
 __decorate([
+    (0, swagger_2.ApiProperty)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsEmail)(),
     __metadata("design:type", String)
 ], crearUsuarioDto.prototype, "correo", void 0);
 __decorate([
+    (0, swagger_2.ApiProperty)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], crearUsuarioDto.prototype, "password", void 0);
+__decorate([
+    (0, swagger_2.ApiProperty)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", rol_entity_1.Rol)
+], crearUsuarioDto.prototype, "fk_rol_user", void 0);
 class actualizarUsuarioDto extends (0, swagger_1.PartialType)(crearUsuarioDto) {
 }
 exports.actualizarUsuarioDto = actualizarUsuarioDto;

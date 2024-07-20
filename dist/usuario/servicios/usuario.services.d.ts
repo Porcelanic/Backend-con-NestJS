@@ -5,17 +5,6 @@ export declare class usuarioService {
     private usuarioRepo;
     constructor(usuarioRepo: Repository<usuario>);
     prueba(): string;
-    login(correo: string, password: string): Promise<{
-        statusCode: number;
-        message: string;
-        user?: undefined;
-        Response?: undefined;
-    } | {
-        statusCode: number;
-        user: usuario[];
-        Response: boolean;
-        message?: undefined;
-    }>;
     crearUsuario(data: crearUsuarioDto): Promise<{
         statusCode: number;
         message: string;

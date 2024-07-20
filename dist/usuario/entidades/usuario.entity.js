@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.usuario = void 0;
 const typeorm_1 = require("typeorm");
 const class_transformer_1 = require("class-transformer");
+const rol_entity_1 = require("./rol.entity");
 let usuario = class usuario {
 };
 exports.usuario = usuario;
@@ -52,6 +53,13 @@ __decorate([
     (0, typeorm_1.Column)({ type: 'varchar', length: 200 }),
     __metadata("design:type", String)
 ], usuario.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => rol_entity_1.Rol, (rol) => rol.usuario, {
+        nullable: false,
+    }),
+    (0, typeorm_1.JoinColumn)({ name: 'fk_rol_user' }),
+    __metadata("design:type", rol_entity_1.Rol)
+], usuario.prototype, "fk_rol_user", void 0);
 exports.usuario = usuario = __decorate([
     (0, typeorm_1.Entity)()
 ], usuario);

@@ -1,3 +1,4 @@
+import { Rol } from './rol.entity';
 export declare class usuario {
     id: number;
     cedula: string;
@@ -8,4 +9,5 @@ export declare class usuario {
     correo: string;
     direccion: string;
     password: string;
+    fk_rol_user: Rol;
 }

@@ -2,9 +2,22 @@ import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ClassSerializerInterceptor } from '@nestjs/common';
 import { enviroments } from './enviroments';
+import { setupSwagger } from './Swagger.config';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+   // Configura Swagger
+   const config = new DocumentBuilder()
+   .setTitle('API REST ACM')
+   .setDescription('Servicio REST - ACM')
+   .setVersion('1.0')
+   .build();
+ 
+   const document = SwaggerModule.createDocument(app, config);
+   SwaggerModule.setup('api', app, document);
+
   // Evitar el error de protocolo cruzado (htto/https)
   app.enableCors();
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));

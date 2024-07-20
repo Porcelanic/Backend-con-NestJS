@@ -24,28 +24,6 @@ let usuarioService = class usuarioService {
     prueba() {
         return 'Mi primer servicio';
     }
-    async login(correo, password) {
-        try {
-            const user = await this.usuarioRepo.find({ where: [{ correo: correo, password: password }] });
-            if (user.length == 0) {
-                return {
-                    statusCode: 404,
-                    message: "Usuario o contraseña incorrectos"
-                };
-            }
-            return {
-                statusCode: 200,
-                user: user,
-                Response: true
-            };
-        }
-        catch (error) {
-            return {
-                statusCode: 500,
-                message: 'Error Interno'
-            };
-        }
-    }
     async crearUsuario(data) {
         try {
             const user = await this.usuarioRepo.find({ where: [{ cedula: data.cedula }, { correo: data.correo }] });
@@ -72,10 +50,12 @@ let usuarioService = class usuarioService {
         }
     }
     async consultarTodos() {
-        return await this.usuarioRepo.find();
+        return await this.usuarioRepo.find({
+            relations: ["fk_rol_user"]
+        });
     }
     async consultarTodosCedula(cedula) {
-        return await this.usuarioRepo.findOne({ where: { cedula: cedula } });
+        return await this.usuarioRepo.findOne({ where: { cedula: cedula }, relations: ["fk_rol_user"] });
     }
     async actualizarUsuario(cedula, data) {
         try {

@@ -12,15 +12,18 @@ const typeorm_1 = require("@nestjs/typeorm");
 const usuario_entity_1 = require("./entidades/usuario.entity");
 const usuario_controller_1 = require("./controladores/usuario.controller");
 const usuario_services_1 = require("./servicios/usuario.services");
+const rol_entity_1 = require("./entidades/rol.entity");
+const rol_controller_1 = require("./controladores/rol/rol.controller");
+const rol_service_1 = require("./servicios/rol/rol.service");
 let UsuarioModule = class UsuarioModule {
 };
 exports.UsuarioModule = UsuarioModule;
 exports.UsuarioModule = UsuarioModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([usuario_entity_1.usuario])],
-        controllers: [usuario_controller_1.UsuarioController],
-        providers: [usuario_services_1.usuarioService],
-        exports: [usuario_services_1.usuarioService]
+        imports: [typeorm_1.TypeOrmModule.forFeature([usuario_entity_1.usuario, rol_entity_1.Rol])],
+        controllers: [usuario_controller_1.UsuarioController, rol_controller_1.RolController],
+        providers: [usuario_services_1.usuarioService, rol_service_1.RolService],
+        exports: [usuario_services_1.usuarioService, rol_service_1.RolService]
     })
 ], UsuarioModule);
 //# sourceMappingURL=usuario.module.js.map

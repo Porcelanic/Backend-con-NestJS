@@ -16,7 +16,10 @@ exports.UsuarioController = void 0;
 const common_1 = require("@nestjs/common");
 const usuario_services_1 = require("../servicios/usuario.services");
 const usuario_dto_1 = require("../dto/usuario.dto");
-const login_dto_1 = require("../dto/login.dto");
+const swagger_1 = require("@nestjs/swagger");
+const jwt_auth_guard_1 = require("../../auth/guards/jwt-auth.guard");
+const roles_guards_1 = require("../../auth/guards/roles.guards");
+const roles_decorator_1 = require("../../auth/guards/roles.decorator");
 let UsuarioController = class UsuarioController {
     constructor(usuarioService) {
         this.usuarioService = usuarioService;
@@ -36,9 +39,6 @@ let UsuarioController = class UsuarioController {
     async eliminarUsuario(cedula) {
         return await this.usuarioService.eliminarUsuario(cedula);
     }
-    login(payload) {
-        return this.usuarioService.login(payload.correo, payload.password);
-    }
     async consultarUsuarioCedula(cedula) {
         return await this.usuarioService.consultarTodosCedula(cedula);
     }
@@ -46,6 +46,7 @@ let UsuarioController = class UsuarioController {
 exports.UsuarioController = UsuarioController;
 __decorate([
     (0, common_1.Get)('prueba'),
+    (0, roles_decorator_1.Roles)('Administrador', 'Empleado', 'Cliente'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
@@ -53,6 +54,10 @@ __decorate([
 __decorate([
     (0, common_1.Post)('crearUsuario'),
     (0, common_1.UsePipes)(new common_1.ValidationPipe()),
+    (0, swagger_1.ApiOperation)({ summary: 'Crear un nuevo usuario' }),
+    (0, swagger_1.ApiBody)({ type: usuario_dto_1.crearUsuarioDto }),
+    (0, swagger_1.ApiResponse)({ status: 201, description: 'Usuario creado con éxito' }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: 'Datos de usuario inválidos' }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [usuario_dto_1.crearUsuarioDto]),
@@ -82,14 +87,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsuarioController.prototype, "eliminarUsuario", null);
 __decorate([
-    (0, common_1.Post)('login'),
-    (0, common_1.UsePipes)(new common_1.ValidationPipe()),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [login_dto_1.crearLoginDto]),
-    __metadata("design:returntype", void 0)
-], UsuarioController.prototype, "login", null);
-__decorate([
     (0, common_1.Get)('consultarUsuarioCedula/:cedula'),
     __param(0, (0, common_1.Param)('cedula', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
@@ -97,7 +94,9 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsuarioController.prototype, "consultarUsuarioCedula", null);
 exports.UsuarioController = UsuarioController = __decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guards_1.RolesGuard),
     (0, common_1.Controller)('usuario'),
+    (0, swagger_1.ApiTags)('Usuario'),
     __metadata("design:paramtypes", [usuario_services_1.usuarioService])
 ], UsuarioController);
 //# sourceMappingURL=usuario.controller.js.map

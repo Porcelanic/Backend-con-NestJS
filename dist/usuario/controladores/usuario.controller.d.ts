@@ -1,6 +1,5 @@
 import { usuarioService } from 'src/usuario/servicios/usuario.services';
 import { actualizarUsuarioDto, crearUsuarioDto } from '../dto/usuario.dto';
-import { crearLoginDto } from '../dto/login.dto';
 export declare class UsuarioController {
     private usuarioService;
     constructor(usuarioService: usuarioService);
@@ -27,17 +26,6 @@ export declare class UsuarioController {
     eliminarUsuario(cedula: string): Promise<{
         statusCode: number;
         message: string;
-    }>;
-    login(payload: crearLoginDto): Promise<{
-        statusCode: number;
-        message: string;
-        user?: undefined;
-        Response?: undefined;
-    } | {
-        statusCode: number;
-        user: import("../entidades/usuario.entity").usuario[];
-        Response: boolean;
-        message?: undefined;
     }>;
     consultarUsuarioCedula(cedula: string): Promise<import("../entidades/usuario.entity").usuario>;
 }

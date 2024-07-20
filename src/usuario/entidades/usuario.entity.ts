@@ -1,8 +1,10 @@
 import { 
     Column,
     Entity,
-    PrimaryGeneratedColumn,} from 'typeorm';
+    PrimaryGeneratedColumn,
+  ManyToOne, JoinColumn} from 'typeorm';
 import { Exclude } from 'class-transformer';
+import { Rol } from './rol.entity';
 
 
 @Entity()
@@ -26,4 +28,10 @@ export class usuario {
   @Exclude()
   @Column({ type: 'varchar', length: 200})
   password: string;
+  //Relacion Rol  
+   @ManyToOne(() => Rol, (rol) => rol.usuario, {
+    nullable: false,
+    })
+  @JoinColumn({ name: 'fk_rol_user' })
+  fk_rol_user: Rol;
 }
