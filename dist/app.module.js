@@ -26,6 +26,7 @@ const serve_static_1 = require("@nestjs/serve-static");
 const path_1 = require("path");
 const administrador_module_1 = require("./Modelos/administrador/administrador.module");
 const camisetas_module_1 = require("./Modelos/camisetas/camisetas.module");
+const usuario_module_1 = require("./Modelos/usuario/usuario.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -52,6 +53,7 @@ exports.AppModule = AppModule = __decorate([
             camisa_module_1.camisaModule,
             upload_module_1.UploadModule,
             administrador_module_1.AdministradorModule,
+            usuario_module_1.UsuarioModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

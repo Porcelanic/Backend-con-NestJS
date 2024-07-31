@@ -76,7 +76,7 @@ export class estampadoService {
 
     //Consultar todos los estampados
     async consultarTodos() {
-      return await this.estampadoRepo.find();
+      return await this.estampadoRepo.find({ relations: ['artista'] });
     }
   
     //Consultar un estampado
