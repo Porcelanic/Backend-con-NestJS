@@ -23,7 +23,7 @@ export class camisetasService {
   async crearCamisetas(data: crearCamisetasDto) {
     try {
       const user = await this.camisetasRepo.find({
-        where: [{ nombre: data.nombre , adminEmail: data.adminEmail}],
+        where: [{ nombre: data.nombre , usuarioEmail: data.usuarioEmail}],
       });
       if (user.length > 0) {
         return {
@@ -54,7 +54,7 @@ async consultarTodos() {
 
 //Consultar camisetas por nombre
 async consultarCamisetas(nombre: string, data: identificadorCamisetasDto) {
-  return await this.camisetasRepo.find({ where: { nombre: nombre, adminEmail: data.adminEmail } });
+  return await this.camisetasRepo.find({ where: { nombre: nombre, usuarioEmail: data.usuarioEmail } });
 }
 
 async consultarDiseño(diseño: string) {
@@ -68,7 +68,7 @@ async consultarTipo(tipo: string) {
   async eliminarCamisetas(nombre: string, data: identificadorCamisetasDto) {
     try {
       const user = await this.camisetasRepo.findOne({
-        where: [{nombre: nombre , adminEmail: data.adminEmail}],
+        where: [{nombre: nombre , usuarioEmail: data.usuarioEmail}],
       })
       if(user){
         await this.camisetasRepo.delete(user);

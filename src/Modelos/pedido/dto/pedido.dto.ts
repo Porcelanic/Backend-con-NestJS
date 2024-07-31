@@ -25,7 +25,7 @@ export class crearPedidoDto {
 
     @IsNotEmpty()
     @IsEmail()
-    clienteEmail: string;
+    usuarioEmail: string;
     
     @IsNotEmpty()
     @IsNumber()

@@ -22,12 +22,12 @@ export class estampadoService {
   async crearEstampado(data: crearEstampadoDto) {
     try {
       const user = await this.estampadoRepo.find({
-        where: [{ nombre: data.nombre , artistaEmail: data.artistaEmail}],
+        where: [{ nombre: data.nombre , usuarioEmail: data.usuarioEmail}],
       });
       if (user.length > 0) {
         return {
           statusCode: 200,
-          message: 'Este nombre ya fue usado en un estampado previo por el artista',
+          message: 'Este nombre ya fue usado en un estampado previo por el usuario',
         };
       } else {
         const nuevoEstampado = this.estampadoRepo.create(data);
@@ -49,7 +49,7 @@ export class estampadoService {
   async actualizarEstampado(nombre: string, data: actualizarEstampadoDto) {
     try {
       const user = await this.estampadoRepo.findOne({
-        where: [{ nombre: nombre, artistaEmail: data.artistaEmail}],
+        where: [{ nombre: nombre, usuarioEmail: data.usuarioEmail}],
       });
 
 
@@ -76,12 +76,12 @@ export class estampadoService {
 
     //Consultar todos los estampados
     async consultarTodos() {
-      return await this.estampadoRepo.find({ relations: ['artista'] });
+      return await this.estampadoRepo.find({ relations: ['usuario'] });
     }
   
     //Consultar un estampado
     async consultarEstampado(nombre: string, data: identificadorEstampadoDto) {
-      return await this.estampadoRepo.find({ where: { nombre: nombre, artistaEmail: data.artistaEmail } });
+      return await this.estampadoRepo.find({ where: { nombre: nombre, usuarioEmail: data.usuarioEmail } });
     }
 
     async consultarDiseño(diseño: string) {
@@ -91,7 +91,7 @@ export class estampadoService {
   async eliminarEstampado(nombre: string, data: identificadorEstampadoDto) {
     try {
       const user = await this.estampadoRepo.findOne({
-        where: [{nombre: nombre , artistaEmail: data.artistaEmail}],
+        where: [{nombre: nombre , usuarioEmail: data.usuarioEmail}],
       })
       if(user){
         await this.estampadoRepo.delete(user);

@@ -20,7 +20,7 @@ export class crearCamisetasDto {
 
   @IsNotEmpty()
   @IsString()
-  adminEmail: string;
+  usuarioEmail: string;
 }
 
 export class actualizarCamisetasDto extends PartialType(crearCamisetasDto) {}
@@ -28,5 +28,5 @@ export class actualizarCamisetasDto extends PartialType(crearCamisetasDto) {}
 export class identificadorCamisetasDto {
   @IsEmail()
   @IsString()
-  adminEmail: string;
+  usuarioEmail: string;
 }

@@ -31,9 +31,9 @@ export class InformacionEnvioController {
     return await this.informacionEnvioService.consultarUno(id);
   }
 
-  @Get('consultarClienteEmail/:clienteEmail')
-  async consultarNombre(@Param('clienteEmail') clienteEmail: string){
-    return await this.informacionEnvioService.consultarInformacionEnvio(clienteEmail);
+  @Get('consultarClienteEmail/:usuarioEmail')
+  async consultarNombre(@Param('usuarioEmail') usuarioEmail: string){
+    return await this.informacionEnvioService.consultarInformacionEnvio(usuarioEmail);
   }
 
   @Put('actualizarInformacionEnvio/:id')
