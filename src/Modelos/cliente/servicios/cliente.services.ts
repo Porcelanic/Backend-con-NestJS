@@ -2,7 +2,6 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, DeepPartial } from 'typeorm';
 import { cliente } from 'src/database/Entidades/cliente.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { crearLoginDto } from '../dto/login.dto';
 import { crearClienteDto, actualizarClienteDto } from '../dto/cliente.dto';
 
 @Injectable()
@@ -14,30 +13,6 @@ export class clienteService {
 
   prueba(): string {
     return 'Mi primer servicio';
-  }
-
-  async login(data: crearLoginDto) {
-    try {
-      const user = await this.clienteRepo.find({
-        where: [{ email: data.email, password: data.password }],
-      });
-      if (user.length == 0) {
-        return {
-          statusCode: 404,
-          message: 'Cliente o contraseña incorrectos',
-        };
-      }
-      return {
-        statusCode: 200,
-        user: user,
-        Response: true,
-      };
-    } catch (error) {
-      return {
-        statusCode: 500,
-        message: 'Error Interno',
-      };
-    }
   }
 
   //Crear Cliente

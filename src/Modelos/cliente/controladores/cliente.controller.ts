@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Param, Put, Body, UsePipes, ValidationPipe, ParseIntPipe, Delete } from '@nestjs/common';
 import { clienteService } from '../servicios/cliente.services';
 import { actualizarClienteDto, crearClienteDto } from '../dto/cliente.dto';
-import { crearLoginDto } from '../dto/login.dto';
+import { crearLoginDto } from '../../../auth/dto/login.dto';
 
 
 
@@ -45,10 +45,6 @@ export class ClienteController {
   }
 
 
-  @Post('login')
-  @UsePipes(new ValidationPipe())
-  login(@Body() data: crearLoginDto) {
-    return this.clienteService.login(data);
-  }  
+
 
 }

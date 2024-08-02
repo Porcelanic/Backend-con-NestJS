@@ -17,6 +17,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { AdministradorModule } from './Modelos/administrador/administrador.module';
 import { CamisetasModule } from './Modelos/camisetas/camisetas.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { CamisetasModule } from './Modelos/camisetas/camisetas.module';
     PedidoModule,
     camisaModule,
     UploadModule,
+    AuthModule,
     AdministradorModule,
   ],
   controllers: [AppController],
