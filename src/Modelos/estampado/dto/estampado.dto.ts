@@ -16,7 +16,7 @@ export class crearEstampadoDto {
 
   @IsNotEmpty()
   @IsString()
-  artistaEmail: string;
+  usuarioEmail: string;
 }
 
 export class actualizarEstampadoDto extends PartialType(crearEstampadoDto) {}
@@ -24,5 +24,5 @@ export class actualizarEstampadoDto extends PartialType(crearEstampadoDto) {}
 export class identificadorEstampadoDto {
   @IsEmail()
   @IsString()
-  artistaEmail: string;
+  usuarioEmail: string;
 }

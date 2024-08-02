@@ -29,7 +29,7 @@ export class crearInformacionEnvioDto {
 
   @IsNotEmpty()
   @IsEmail()
-  clienteEmail: string;
+  usuarioEmail: string;
 }
 
 export class actualizarInformacionEnvioDto extends PartialType(

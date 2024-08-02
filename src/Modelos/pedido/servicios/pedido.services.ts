@@ -44,8 +44,8 @@ export class pedidoService {
   }
 
   //Consultar Pedido por Id
-  async consultarUno(clienteEmail: string) {
-    const pedido = await this.pedidoRepo.findOne({ where: { clienteEmail: clienteEmail } });
+  async consultarUno(usuarioEmail: string) {
+    const pedido = await this.pedidoRepo.findOne({ where: { usuarioEmail: usuarioEmail } });
     if (pedido) {
       return pedido;
     } else {

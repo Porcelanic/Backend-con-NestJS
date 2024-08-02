@@ -33,9 +33,9 @@ export class informacionEnvioService {
     }
   }
 
-  async consultarInformacionEnvio(clienteEmail: string) {
+  async consultarInformacionEnvio(usuarioEmail: string) {
     return await this.informacionEnvioRepo.find({
-      where: [{ clienteEmail: clienteEmail }],
+      where: [{ usuarioEmail: usuarioEmail }],
     });
   }
 

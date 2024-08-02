@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { cliente } from './cliente.entity';
+import { usuario } from './usuario.entity';
 
 @Entity()
 export class informacionEnvio {
@@ -18,8 +18,8 @@ export class informacionEnvio {
   @Column({ type: 'varchar', length: 13 })
   telefono: string;
   @Column({ type: 'varchar', length: 45 })
-  clienteEmail: string;
-  @ManyToOne(() => cliente, {onDelete: 'CASCADE'})
-  @JoinColumn({ name: 'clienteEmail', referencedColumnName: 'email' })
-  cliente: cliente;
+  usuarioEmail: string;
+  @ManyToOne(() => usuario, {onDelete: 'CASCADE'})
+  @JoinColumn({ name: 'usuarioEmail', referencedColumnName: 'email' })
+  usuario: usuario;
 }

@@ -1,7 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn, PrimaryColumn, ManyToOne, JoinColumn, IntegerType } from 'typeorm';
-import { Exclude } from 'class-transformer';
-import { artista } from './artista.entity';
-import { administrador } from './administrador.entity';
+import { usuario } from './usuario.entity';
 
 @Entity()
 export class camisetas {
@@ -21,10 +19,10 @@ export class camisetas {
   precio: IntegerType;
 
   @Column({ type: 'varchar', length: 45 })
-  adminEmail: string;
+  usuarioEmail: string;
 
-  @ManyToOne(() => administrador, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'adminEmail', referencedColumnName: 'email' })
-  administrador: administrador;
+  @ManyToOne(() => usuario, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'usuarioEmail', referencedColumnName: 'email' })
+  usuario: usuario;
 
 }
