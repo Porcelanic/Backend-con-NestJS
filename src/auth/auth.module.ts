@@ -5,11 +5,11 @@ import { AuthController } from './controladores/auth.controller';
 import { AuthService } from './servicios/auth.services';
 import { JwtStrategy } from './estrategia/estrategia';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { cliente } from 'src/database/Entidades/cliente.entity';
+import { usuario } from 'src/database/Entidades/usuario.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([cliente]),
+    TypeOrmModule.forFeature([usuario]),
     PassportModule,
     JwtModule.register({
       secret: 'secretKey',

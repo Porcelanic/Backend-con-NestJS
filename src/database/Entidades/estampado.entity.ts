@@ -1,5 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm';
-import { Exclude } from 'class-transformer';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { usuario } from './usuario.entity';
 
 @Entity()
