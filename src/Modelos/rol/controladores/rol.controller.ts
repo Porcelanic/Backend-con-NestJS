@@ -1,8 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
 import { RolService } from '../servicios/rol.service';
 import { crearRolDto, actualizarRolDto } from '../dto/rol.dto';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { Rol } from 'src/auth/guards/rol.decorator';
+import { RolGuard } from 'src/auth/guards/rol.guards';
 
-
+@UseGuards(JwtAuthGuard, RolGuard)
+@Rol('Administrador')
 @Controller('rol')
 export class RolController {
     constructor( private rolService: RolService) {}
