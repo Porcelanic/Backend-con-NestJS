@@ -1,0 +1,1087 @@
+{
+	"info": {
+		"_postman_id": "93c885c4-027a-4053-8e2f-bc50bb627801",
+		"name": "CollecionDePaginaDeCamisetas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "43857112"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"manuel-@gmail.com\",\n  \"nombre\": \"Manuel Gonzalez\",\n  \"password\": \"1234\",\n  \"rolId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/usuario/crearUsuario"
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"manuel@gmail.com\",\n  \"password\": \"1234\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/auth/Login"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Read",
+					"item": [
+						{
+							"name": "Read",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MDkwNTM1LCJleHAiOjE3NDQwOTc3MzV9.ARju2LgUxwm8NX0JFGq5CH7uah5uCYuJGHnbNuVZkkE"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/usuario/consultarUsuario/manuel@gmail.com"
+							},
+							"response": []
+						},
+						{
+							"name": "ReadAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MDkwNTM1LCJleHAiOjE3NDQwOTc3MzV9.ARju2LgUxwm8NX0JFGq5CH7uah5uCYuJGHnbNuVZkkE"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/usuario/consultarUsuario"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MDkwNTM1LCJleHAiOjE3NDQwOTc3MzV9.ARju2LgUxwm8NX0JFGq5CH7uah5uCYuJGHnbNuVZkkE"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"rolId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/usuario/actualizarUsuario/manuel@gmail.com"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MDkwNTM1LCJleHAiOjE3NDQwOTc3MzV9.ARju2LgUxwm8NX0JFGq5CH7uah5uCYuJGHnbNuVZkkE"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/usuario/eliminarUsuario/user@example.com"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbEBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MDk3NDAwLCJleHAiOjE3NDQxMDQ2MDB9.0yxkMpUCQaTjcb0aBg5QCs9el0U5zySpDKB5mFAd6-0"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\":3,\n  \"nombre\": \"Cliente\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/rol/crearRol"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Read",
+					"item": [
+						{
+							"name": "Read",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbEBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MDk3NDAwLCJleHAiOjE3NDQxMDQ2MDB9.0yxkMpUCQaTjcb0aBg5QCs9el0U5zySpDKB5mFAd6-0"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/rol/consultarRol/1"
+							},
+							"response": []
+						},
+						{
+							"name": "ReadAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbEBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MDk3NDAwLCJleHAiOjE3NDQxMDQ2MDB9.0yxkMpUCQaTjcb0aBg5QCs9el0U5zySpDKB5mFAd6-0"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/rol/consultarRol"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbEBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MDk3NDAwLCJleHAiOjE3NDQxMDQ2MDB9.0yxkMpUCQaTjcb0aBg5QCs9el0U5zySpDKB5mFAd6-0"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\":3,\n  \"nombre\": \"Cliente\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/rol/actualizarRol/3"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/rol/eliminarRol/3"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Uploads",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "CreateEstampado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var template = `\r",
+											"<style type=\"text/css\">\r",
+											"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+											"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+											"    .tftable tr {background-color:#ffffff;}\r",
+											"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+											"    .tftable tr:hover {background-color:#e0ffff;}\r",
+											"</style>\r",
+											"\r",
+											"<table class=\"tftable\" border=\"1\">\r",
+											"    <tr>\r",
+											"        <th>Status Code</th>\r",
+											"        <th>Message</th>\r",
+											"    </tr>\r",
+											"    <tr>\r",
+											"        <td>{{response.statusCode}}</td>\r",
+											"        <td>{{response.message}}</td>\r",
+											"    </tr>\r",
+											"</table>\r",
+											"`;\r",
+											"\r",
+											"function constructVisualizerPayload() {\r",
+											"    return { response: pm.response.json() }\r",
+											"}\r",
+											"\r",
+											"pm.visualizer.set(template, constructVisualizerPayload());"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbEBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MzMyMDUyLCJleHAiOjE3NDQzMzkyNTJ9.2lF6MmudbgY9WxQZBPrrZxlJTkXaznKRNBDS16IIYiU"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/Manuel/Downloads/HARDEST image in the world.jpeg"
+										}
+									]
+								},
+								"url": "http://localhost:3000/upload/estampado"
+							},
+							"response": []
+						},
+						{
+							"name": "CreateCamiseta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbEBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MTUzNzkwLCJleHAiOjE3NDQxNjA5OTB9.zodchcPCtknEtOAkKtNSrqJHT2709GK7hcLWBEhfrkY"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "c:\\Users\\Manuel\\Pictures\\Saved Pictures\\refuge-by-highly-talented-im-does-on-fiverr-commissioned-v0-94akzn2bf6ja1.jpg"
+										}
+									]
+								},
+								"url": "http://localhost:3000/upload/camiseta/Deportivas"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Read",
+					"item": [
+						{
+							"name": "ReadEstampado",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/uploads/Estampados/file-1744097776010.jpeg"
+							},
+							"response": []
+						},
+						{
+							"name": "ReadCamiseta",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/uploads/Camisetas/Deportivas/file-1744153850626.jpg"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": "http://localhost:3000/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "InformacionesEnvios",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbF9AZ21haWwuY29tIiwicm9sIjoiQ2xpZW50ZSIsImlhdCI6MTc0NDMzMjI1NiwiZXhwIjoxNzQ0MzM5NDU2fQ.0y5YN0kKqbbnHZZhahBUilCIoFZxHAIB7I9d4IM3ocU"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"barrio\": \"El Poblado\",\r\n  \"ciudad\": \"Medellín\",\r\n  \"pais\": \"Colombia\",\r\n  \"codigoPostal\": \"050021\",\r\n  \"direccion\": \"Cra 43A #7-50\",\r\n  \"telefono\": \"3001234567\",\r\n  \"usuarioEmail\": \"manuel_@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/informacionEnvio/crearInformacionEnvio"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Read",
+					"item": [
+						{
+							"name": "Read",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbEBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MzMyNTU4LCJleHAiOjE3NDQzMzk3NTh9.zoXKZC-gWAwbCL2Eo8YYhIXjg2TZ9ApmTtcmqewAzdM"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/informacionEnvio/consultarInformacionEnvio/3"
+							},
+							"response": []
+						},
+						{
+							"name": "ReadAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbEBnbWFpbC5jb20iLCJyb2wiOiJBZG1pbmlzdHJhZG9yIiwiaWF0IjoxNzQ0MzMyNTU4LCJleHAiOjE3NDQzMzk3NTh9.zoXKZC-gWAwbCL2Eo8YYhIXjg2TZ9ApmTtcmqewAzdM"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/informacionEnvio/consultarInformacionEnvio"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbF9AZ21haWwuY29tIiwicm9sIjoiQ2xpZW50ZSIsImlhdCI6MTc0NDMzMjI1NiwiZXhwIjoxNzQ0MzM5NDU2fQ.0y5YN0kKqbbnHZZhahBUilCIoFZxHAIB7I9d4IM3ocU"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"barrio\": \"El Poblado\",\r\n  \"ciudad\": \"Medellín\",\r\n  \"pais\": \"Colombia\",\r\n  \"codigoPostal\": \"050021\",\r\n  \"direccion\": \"Cra 43A #7-50\",\r\n  \"telefono\": \"3001234567\",\r\n  \"usuarioEmail\": \"manuel_@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/informacionEnvio/actualizarInformacionEnvio/2"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbnVlbF9AZ21haWwuY29tIiwicm9sIjoiQ2xpZW50ZSIsImlhdCI6MTc0NDMzMjc5MCwiZXhwIjoxNzQ0MzM5OTkwfQ.fJ5C6sniYgX0EvJLcdPoGZgV-IUqb7CQvRgYpq5uSSM"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/informacionEnvio/eliminarInformacionEnvio/5"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{cli}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"valor\": 150000,\r\n  \"estado\": \"Por Enviar\",\r\n  \"fechaPedido\": \"2025-04-10T10:30:00Z\",\r\n  \"fechaEnvio\": \"2025-04-11T15:00:00Z\",\r\n  \"usuarioEmail\": \"manuel_@gmail.com\",\r\n  \"informacionEnvioId\": 3\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/pedido/crearPedido"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Read",
+					"item": [
+						{
+							"name": "Read",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/pedido/consultarPedido/manuel_@gmail.com"
+							},
+							"response": []
+						},
+						{
+							"name": "ReadAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/pedido/consultarPedido"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{cli}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"valor\": 150000,\r\n  \"estado\": \"Enviado\",\r\n  \"fechaPedido\": \"2025-04-10T10:30:00Z\",\r\n  \"fechaEnvio\": \"2025-04-11T15:00:00Z\",\r\n  \"usuarioEmail\": \"manuel_@gmail.com\",\r\n  \"informacionEnvioId\": 3\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/pedido/actualizarPedido/1"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/pedido/eliminarPedido/1"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Materiales",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Material\": \"Poliester\",\r\n  \"cantidad\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/material/crearMaterial"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Read",
+					"item": [
+						{
+							"name": "Read",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/material/consultarMaterial/Poliester"
+							},
+							"response": []
+						},
+						{
+							"name": "ReadAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/material/consultarMaterial"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cantidad\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/material/actualizarMaterial/Poliéster"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/material/eliminarMaterial/Poliéster"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Camisas",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"imagen\": \"test\",\r\n  \"precio\": 45000,\r\n  \"talla\": \"M\",\r\n  \"cantidad\": 2,\r\n  \"Material\": \"Poliester\",\r\n  \"numeroPedido\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/camisa/crearCamisa"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Read",
+					"item": [
+						{
+							"name": "Read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/camisa/consultarCamisa/1"
+							},
+							"response": []
+						},
+						{
+							"name": "ReadAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/camisa/consultarCamisa"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"imagen\": \"test\",\r\n  \"precio\": 45000,\r\n  \"talla\": \"M\",\r\n  \"cantidad\": 2,\r\n  \"Material\": \"Poliester\",\r\n  \"numeroPedido\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/camisa/actualizarCamisa/1"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:3000/camisa/eliminarCamisa/1"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Camisetas",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"diseño\": \"deportiva.jpg\",\r\n  \"nombre\": \"Camiseta Edición Limitada\",\r\n  \"tipo\": \"Deportiva\",\r\n  \"precio\": 55000,\r\n  \"usuarioEmail\": \"manuel@gmail.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/camisetas/crearCamisetas"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Read",
+					"item": [
+						{
+							"name": "ReadName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/camisetas/consultarCamisetas/Camiseta Edición Limitada"
+							},
+							"response": []
+						},
+						{
+							"name": "ReadType",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/camisetas/consultarTipo/Deportiva"
+							},
+							"response": []
+						},
+						{
+							"name": "ReadAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adm}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:3000/camisetas/consultarCamisetas"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"imagen\": \"test\",\r\n  \"precio\": 45000,\r\n  \"talla\": \"M\",\r\n  \"cantidad\": 2,\r\n  \"Material\": \"Poliester\",\r\n  \"numeroPedido\": 2\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/camisetas/actualizarCamisetas/4"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"usuarioEmail\": \"manuel@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/camisetas/eliminarCamisetas/Camiseta Edición Limitada"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Estampados",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"diseño\": \"Estampado abstracto\",\r\n  \"nombre\": \"Algo\",\r\n  \"categoria\": \"Algo mas\",\r\n  \"usuarioEmail\": \"manuel-@gmail.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/estampado/crearEstampado"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Read",
+					"item": [
+						{
+							"name": "ReadByName",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"usuarioEmail\": \"manuel-@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/estampado/consultarEstampado/Algo"
+							},
+							"response": []
+						},
+						{
+							"name": "ReadAll",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/estampado/consultarEstampado"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"usuarioEmail\": \"manuel-@gmail.com\",\r\n    \"categoria\": \"Algo menos\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/estampado/actualizarEstampado/Algo"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"usuarioEmail\": \"manuel-@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:3000/estampado/eliminarEstampado/Algo"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

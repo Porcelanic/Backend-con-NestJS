@@ -69,10 +69,12 @@ export class UsuarioService {
   async actualizarUsuario(email: string, data: actualizarUsuarioDto) {
     try {
       const usuario = await this.usuarioRepo.findOne({
-        where: [{ email: email }],
+        where: { email: email },
       });
+  
       if (usuario) {
-        await this.usuarioRepo.merge(usuario, data);
+        this.usuarioRepo.merge(usuario, data);
+        await this.usuarioRepo.save(usuario);
         return {
           statusCode: 200,
           message: 'Usuario actualizado',
@@ -84,6 +86,7 @@ export class UsuarioService {
         };
       }
     } catch (error) {
+      console.error(error); // optional, helps with debugging
       return {
         statusCode: 500,
         message: 'Error Interno',

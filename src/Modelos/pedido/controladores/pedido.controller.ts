@@ -4,6 +4,7 @@ import { actualizarPedidoDto, crearPedidoDto } from '../dto/pedido.dto';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { Rol } from 'src/auth/guards/rol.decorator';
 import { RolGuard } from 'src/auth/guards/rol.guards';
+import { usuario } from 'src/database/Entidades/usuario.entity';
 
 
 @UseGuards(JwtAuthGuard, RolGuard)
@@ -30,9 +31,9 @@ export class PedidoController {
   }
 
   @Rol('Administrador')
-  @Get('consultarPedido/:numeroPedido')
-  async consultarUno(@Param('numeroPedido') numeroPedido: string){
-    return await this.pedidoService.consultarUno(numeroPedido);
+  @Get('consultarPedido/:usuarioEmail')
+  async consultarUno(@Param('usuarioEmail') usuarioEmail: string){
+    return await this.pedidoService.consultarUno(usuarioEmail);
   }
 
   @Rol('Cliente')
