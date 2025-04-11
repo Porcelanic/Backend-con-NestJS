@@ -1,0 +1,4 @@
+This folder contains a .JSON file with all the CRUD instructions that the backend accepts. 
+These instructions were designed originally with Thunder Client but where migrated to postman and can easily be imported into postman. 
+If you need to perform an action 'x' on entity 'y,' go to the 'y collection', identify to which letter of CRUD your instruction belongs and enter to the correct collection
+and inside it search for the 'x instruction,' and check if it has already been created.

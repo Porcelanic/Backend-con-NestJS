@@ -1,4 +1,0 @@
-This folder contains a .JSON file with all the CRUD instructions that the backend accepts. 
-These instructions were designed with Thunder Client and can easily be imported into it. 
-If you need to perform an action 'x' on entity 'y,' go to the 'y collection,' identify to which letter of CRUD your instruction belongs and enter to the correcto collection
-and inside it search for the 'x instruction,' and check if it has already been created.

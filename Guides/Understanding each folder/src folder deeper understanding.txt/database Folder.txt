@@ -1,3 +1,5 @@
 this folder originally only had a module for the postgreSQL database which has the user, my postgreSQL password, the database the program 
 should use and the schema in which it should work with, in reality all of this info is stored in the config.ts of the parent folder, 
 but said info is used here
+
+and now this folder also houses all the entities, which are used in the 'Modelos' folder
